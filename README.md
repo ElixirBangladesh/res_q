@@ -1,5 +1,8 @@
 # ResQ
 
+A minimalist tool to find nearby hospital beds efficiently. 
+
+# Run Phoenix Server
 To start your Phoenix server:
 
   * Install dependencies with `mix deps.get`
