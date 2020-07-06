@@ -2,7 +2,16 @@
 
 A minimalist tool to find nearby hospital beds efficiently. 
 
-# Run Phoenix Server
+## Pre Requisition
+Need following thing to install in Computer
+  * Installed Elixir 1.10.3
+  * Installed Erlang OTP 22 or more
+  * Installed Phoenix Framework 1.5.3
+  * Installed PostgreSQL
+  * Installed Node.js
+  * Installed inotify-tools (for linux users)
+
+## Run Phoenix Server
 To start your Phoenix server:
 
   * Install dependencies with `mix deps.get`
