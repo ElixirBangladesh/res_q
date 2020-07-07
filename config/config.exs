@@ -33,7 +33,8 @@ config :res_q, :pow,
   repo: ResQ.Repo,
   web_module: ResQWeb,
   extensions: [PowResetPassword],
-  controller_callbacks: Pow.Extension.Phoenix.ControllerCallbacks
+  controller_callbacks: Pow.Extension.Phoenix.ControllerCallbacks,
+  mailer_backend: ResQWeb.PowMailer
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
