@@ -16,6 +16,7 @@ Need following thing to install in Computer
 To start your Phoenix server:
 
   * Install dependencies with `mix deps.get`
+  * Load the .env values with `source .env` 
   * Create and migrate your database with `mix ecto.setup`
   * Install Node.js dependencies with `npm install` inside the `assets` directory
   * Start Phoenix endpoint with `mix phx.server`
