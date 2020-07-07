@@ -2,10 +2,12 @@ use Mix.Config
 
 # Configure your database
 config :res_q, ResQ.Repo,
-  username: "postgres",
-  password: "postgres",
-  database: "res_q_dev",
+  adapter: Ecto.Adapters.Postgres,
   hostname: "localhost",
+  username: System.get_env("DB_USER") || "postgres",
+  password: System.get_env("DB_PASSWORD") || "",
+  database: "res_q_dev",
+  log_level: :debug,
   show_sensitive_data_on_connection_error: true,
   pool_size: 10
 
