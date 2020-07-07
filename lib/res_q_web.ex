@@ -93,6 +93,16 @@ defmodule ResQWeb do
     end
   end
 
+  def mailer_view do
+    quote do
+      use Phoenix.View, root: "lib/res_q_web/templates",
+                        namespace: ResQWeb
+
+      use Phoenix.HTML
+    end
+  end
+
+
   @doc """
   When used, dispatch to the appropriate controller/view/etc.
   """
