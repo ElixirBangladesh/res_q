@@ -31,7 +31,9 @@ config :phoenix, :json_library, Jason
 config :res_q, :pow,
   user: ResQ.Users.User,
   repo: ResQ.Repo,
-  web_module: ResQWeb
+  web_module: ResQWeb,
+  extensions: [PowResetPassword],
+  controller_callbacks: Pow.Extension.Phoenix.ControllerCallbacks
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
