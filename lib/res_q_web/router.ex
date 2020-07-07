@@ -1,6 +1,10 @@
 defmodule ResQWeb.Router do
   use ResQWeb, :router
   use Pow.Phoenix.Router
+  use Pow.Extension.Phoenix.Router,
+    extensions: [PowResetPassword]
+
+
 
   pipeline :browser do
     plug :accepts, ["html"]
@@ -24,6 +28,7 @@ defmodule ResQWeb.Router do
     pipe_through :browser
 
     pow_routes()
+    pow_extension_routes()
   end
 
 
