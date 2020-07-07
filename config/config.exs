@@ -30,7 +30,8 @@ config :phoenix, :json_library, Jason
 # Use pow for user authentication
 config :res_q, :pow,
   user: ResQ.Users.User,
-  repo: ResQ.Repo
+  repo: ResQ.Repo,
+  web_module: ResQWeb
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
