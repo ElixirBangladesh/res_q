@@ -15,36 +15,63 @@
       <section class="section">
         <nav class="navbar" role="navigation" aria-label="main navigation">
           <div class="navbar-brand">
-            <a class="navbar-item" href="#">
-              <img src="#" alt="ResQ" width="112" height="28">
+            <a class="navbar-item" href="/">
+              <h1 class="title is-4">ResQ</h1>
+            </a>
+
+            <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+              <span aria-hidden="true"></span>
+              <span aria-hidden="true"></span>
+              <span aria-hidden="true"></span>
             </a>
           </div>
 
-          <ul class="navbar-end buttons">
-            <%= if Pow.Plug.current_user(@conn) do %>
-              <li class="navbar-item button">
-                <%= @current_user.email %>
-              </li>
-              <li class="navbar-item button is-primary">
-                <%= link "Sing out", to: Routes.pow_session_path(@conn, :delete), method: :delete %>
-              </li>
-            <% else %>
-              <li class="navbar-item button is-light">
+        <div id="navbarBasicExample" class="navbar-menu">
+          <div class="navbar-start">
+            <div class="navbar-item">
+              <div class="field has-addons">
+                <div class="control">
+                  <input class="input" type="text" placeholder="Find ICUs">
+                </div>
+                <div class="control">
+                  <a class="button is-info">Search</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 
-                <%= link "Register", to: Routes.pow_registration_path(@conn, :new) %>
-              </li>
-              <li class="navbar-item button is-light">
-                <%= link "Sign in", to: Routes.pow_session_path(@conn, :new) %>
-              </li>
-            <% end %>
-            <%= if function_exported?(Routes, :live_dashboard_path, 2) do %>
-              <li class="navbar-item button is-light"><%= link "LiveDashboard", to: Routes.live_dashboard_path(@conn, :home) %></li>
-            <% end %>
-          </ul>
+        <div class="navbar-end">
+        <a class="navbar-item">Update ICU info</a>
+        <a class="navbar-item">Browse ICUs</a>
+
+          <%= if Pow.Plug.current_user(@conn) do %>
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-item"><%= @current_user.email %></a>
+
+              <div class="navbar-dropdown">
+                <a href="" class="navbar-item">Dashboard</a>
+                <hr class="navbar-divider">
+                <a href="" class="navbar-item">Profile</a>
+                <hr class="navbar-divider">
+                <span class="button is-warning">
+                  <%= link "Sing out", to: Routes.pow_session_path(@conn, :delete), method: :delete %>
+                </span>
+              </div>
+            </div>
+          <% else %>
+            <div class="navbar-item">
+              <div class="buttons">
+                <div class="button is-light">
+                  <%= link "Register", to: Routes.pow_registration_path(@conn, :new) %>
+                </div>
+                <div class="button is-light">
+                  <%= link "Sign in", to: Routes.pow_session_path(@conn, :new) %>
+                </div>
+              </div>
+            </div>
+          <% end %>
         </nav>
-        <a href="https://phoenixframework.org/" class="phx-logo">
-          <img src="<%= Routes.static_path(@conn, "/images/phoenix.png") %>" alt="Phoenix Framework Logo"/>
-        </a>
       </section>
     </header>
     <%= @inner_content %>
