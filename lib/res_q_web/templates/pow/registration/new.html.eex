@@ -1,28 +1,51 @@
-<h1>Register</h1>
+<section class="hero is-info is-fullheight">
+  <div class="hero-body">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-6-table is-6-desktop is-6-widescreen">
+          <div class="box">
 
-<%= form_for @changeset, @action, [as: :user], fn f -> %>
-  <%= if @changeset.action do %>
-    <div class="alert alert-danger">
-      <p>Oops, something went wrong! Please check the errors below.</p>
+            <div class="field has-text-centered">
+              <strong>Sign Up</strong>
+            </div>
+            <%= form_for @changeset, @action, [as: :user], fn f -> %>
+              <%= if @changeset.action do %>
+                <div class="notification is-danger">
+                  <p>Oops, something went wrong! Please check the errors below.</p>
+                </div>
+              <% end %>
+
+              <div class="field">
+                <%= label f, Pow.Ecto.Schema.user_id_field(@changeset) %>
+                <%= text_input f, Pow.Ecto.Schema.user_id_field(@changeset) %>
+                <%= error_tag f, Pow.Ecto.Schema.user_id_field(@changeset) %>
+              </div>
+
+              <div class="field">
+                <%= label f, :password %>
+                <%= password_input f, :password %>
+                <%= error_tag f, :password %>
+              </div>
+
+              <div class="field">
+                <%= label f, :password_confirmation %>
+                <%= password_input f, :password_confirmation %>
+                <%= error_tag f, :password_confirmation %>
+              </div>
+
+
+              <div class="field">
+                <%= submit "Register" %>
+              </div>
+            <% end %>
+              <div class="button is-small is-primary mt-2">
+                <%= link "Sign in", to: Routes.pow_session_path(@conn, :new) %>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
     </div>
-  <% end %>
-
-  <%= label f, Pow.Ecto.Schema.user_id_field(@changeset) %>
-  <%= text_input f, Pow.Ecto.Schema.user_id_field(@changeset) %>
-  <%= error_tag f, Pow.Ecto.Schema.user_id_field(@changeset) %>
-
-  <%= label f, :password %>
-  <%= password_input f, :password %>
-  <%= error_tag f, :password %>
-
-  <%= label f, :password_confirmation %>
-  <%= password_input f, :password_confirmation %>
-  <%= error_tag f, :password_confirmation %>
-
-  <div>
-    <%= submit "Register" %>
   </div>
-<% end %>
-
-
-<span><%= link "Sign in", to: Routes.pow_session_path(@conn, :new) %></span>
+</section>
